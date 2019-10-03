@@ -1,3 +1,4 @@
+//COMPLETED!
 class CashAmount {
   constructor(amount) {
     this.amount = amount;
@@ -33,13 +34,12 @@ class CashAmount {
       pennies: 0
     };
 
-    console.log('initial money: ', money);
-
-    let moneyArr = [100, 50, 20, 10, 5, 1, 0.25, 0.1, 0.05, 0.01];
+    // let moneyArr = [100, 50, 20, 10, 5, 1, 0.25, 0.1, 0.05, 0.01];
 
     while (money >= 0) {
       if (money >= 100) {
         money -= 100;
+
         wallet['hundreds'] += 1;
       } else if (money >= 50) {
         money -= 50;
@@ -68,10 +68,11 @@ class CashAmount {
       } else if (money >= 0.01) {
         money -= 0.01;
         wallet['pennies'] += 1;
+      } else {
+        break;
       }
-      //   console.log('Money: ', money);
     }
-    this.amount = wallet;
+    return (this.amount = wallet);
   }
 
   toDouble() {
@@ -83,5 +84,5 @@ class CashAmount {
   }
 }
 
-const cash = new CashAmount(300);
+const cash = new CashAmount(305);
 console.log(cash.quantityOfEachDenomination());
